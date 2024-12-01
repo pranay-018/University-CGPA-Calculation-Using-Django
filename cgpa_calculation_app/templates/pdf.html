@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGPA Calculator</title>
-    <!-- Add jsPDF library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -107,14 +105,17 @@
         <h3>CGPA: <span id="cgpa">{{ cgpa }}</span></h3>
     </div>
 
-    <button onclick="myfun('mn')" type="button">Generate Receipt</button>
+    <button onclick="printReceipt()">Print Receipt</button>
 
     <script type="text/javascript">
-        function myfun(pa) {
-            const element = document.getElementById(pa);
+        function printReceipt() {
+            const printContent = document.getElementById('mn').innerHTML;
             const originalContent = document.body.innerHTML;
-            document.body.innerHTML = element.innerHTML;
+            
+            document.body.innerHTML = printContent;
+
             window.print();
+
             document.body.innerHTML = originalContent;
         }
     </script>
