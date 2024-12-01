@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        #calculator {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        th {
+            background-color: #d9dad9d7;
+            color: rgb(97, 93, 93);
+        }
+
+        #cgpa {
+            font-weight: bold;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        button a:hover {
+            text-decoration: underline;
+        }
+
+        .logout-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            width: 120px;
+        }
+
+        .logout-button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <h1>SASTRA UNIVERSITY</h1>
+        <h2>CGPA Calculator</h2>
+        <br>
+        <form method="post" action="{% url 'cgpa_calculator' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Subject</button>
+            <button><a href="{% url 'result' %}">Generate Result</a></button>
+        </form>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Grade</th>
+                    <th>Credit</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subjects %}
+                <tr>
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.grade }}</td>
+                    <td>{{ subject.credit }}</td>
+                    <td>
+                        <button><a href="{% url 'edit_subject' subject.id %}">Edit</a></button>
+                        <button><a href="{% url 'delete_subject' subject.id %}">Delete</a></button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <button class="logout-button"><a href="{% url 'logout' %}">Logout</a></button>
+</body>
+
+</html>
