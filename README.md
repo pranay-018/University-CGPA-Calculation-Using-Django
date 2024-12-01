@@ -20,3 +20,26 @@ This project demonstrates how to build a secure CGPA calculator using Django. Us
    ```bash
    git clone https://github.com/yourusername/cgpa-calculator.git
    cd cgpa-calculator
+## Project ScreenShots
+Login Page
+![{1EC283C5-EDC8-416A-A713-25A4D2A8C8F2}](https://github.com/user-attachments/assets/7f66cc34-a98f-4f63-9cbb-0af85dec0100)
+
+Adding Subjects
+
+![{A1FC1C93-7577-45EC-B797-416158189B5B}](https://github.com/user-attachments/assets/74cf8719-8b9b-4c0b-98f9-409b8d9c630f)
+
+Editing Subjects
+
+![{C14D5031-EE47-46A2-9F8A-6686A65A21D7}](https://github.com/user-attachments/assets/78d1a00a-104b-4bb2-ac9b-36bb38694c7a)
+
+
+Generating Result
+
+![{83FDE487-AFB8-43CE-B995-1B278191E455}](https://github.com/user-attachments/assets/3bcf4d4b-a20c-49fd-b872-d4c53d6ac600)
+
+Printing PDF
+
+![{DC02A889-59D1-446D-8282-36CC907EFF08}](https://github.com/user-attachments/assets/a1a42fc3-89f4-4d0d-8c6a-db62d70a20d9)
+
+
+
